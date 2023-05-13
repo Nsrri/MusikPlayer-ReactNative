@@ -22,7 +22,7 @@ export const HomeView = () => {
             ) : (
                <Text>Loading.....</Text>
             )} */}
-            <Text>Home</Text>
+            <Text style={{fontFamily: 'Nunito-BlackItalic'}}>Home</Text>
          
         </View>
     )
