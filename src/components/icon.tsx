@@ -1,7 +1,7 @@
 import React from 'react';
-import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import AVIcon from 'react-native-vector-icons/FontAwesome';
 
-MIcon.loadFont();
+AVIcon.loadFont();
 
 type IconSizeProps = {
   iconSizes: keyof typeof IconSizes;
@@ -20,6 +20,6 @@ export const IconSizes = {
   extraLarge: 27,
 };
 
-export const MaterialIcon = ({size, name, color}: IconProps) => (
-  <MIcon name={name} size={IconSizes[size]} color={color} />
+export const Icon = ({size, name, color}: IconProps) => (
+  <AVIcon name={name} size={IconSizes[size]} color={color} />
 );
