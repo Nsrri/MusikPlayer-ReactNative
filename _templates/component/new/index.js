@@ -1,5 +1,5 @@
 
-const changeCase = require('change-case');
+const ChangeCase = require('change-case')
 
 module.exports = {
     prompt: async ({prompter: {prompt}}) => {
@@ -8,7 +8,7 @@ module.exports = {
             type: 'input',
             name: 'name',
             message: 'whta is the name of the component or view you want to create?',
-            result: (name) => changeCase.pascal(name),
+            result: (name) => ChangeCase.pascalCase(name),
             validate: (name) => name.length > 2,
     },
 ]);

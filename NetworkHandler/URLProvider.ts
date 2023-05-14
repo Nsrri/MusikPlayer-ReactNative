@@ -1,7 +1,5 @@
 
 import { URLParams } from "./URLParams"
-import URLSearchParams from 'url-search-params';
-
 export const BaseUrl = "https://spotify23.p.rapidapi.com/search/"
 
 
