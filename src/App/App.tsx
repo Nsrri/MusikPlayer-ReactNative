@@ -1,13 +1,10 @@
 import React from 'react';
-import { AppProps } from './App.interface';
-import { Text, View } from 'react-native';
+import { Text, View, useColorScheme } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { BottomTabBarNavigation } from '../BottomTabBarNavigation';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HomeView } from '../HomeView';
-import { SearchView } from '../SearchView';
-import { YourLibrary } from '../YourLibrary';
-import TabIcon from 'react-native-vector-icons/FontAwesome'
+import { ThemeProvider } from '../../Context-Store/Context';
+
 
 
 function HomeScreen() {
@@ -28,9 +25,12 @@ function SettingsScreen() {
 export const App = () => {
   const Tab = createBottomTabNavigator();
   return (
-    <NavigationContainer>
-      <BottomTabBarNavigation />
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>
+        <BottomTabBarNavigation/>
+      </NavigationContainer>
+    </ThemeProvider>
+
 
   )
 }
