@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text, View, useColorScheme } from 'react-native';
+import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { BottomTabBarNavigation } from '../BottomTabBarNavigation';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ThemeProvider } from '../../Context-Store/Context';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { styles } from './App.styles';
 
 
 
@@ -26,9 +28,11 @@ export const App = () => {
   const Tab = createBottomTabNavigator();
   return (
     <ThemeProvider>
+      <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
         <BottomTabBarNavigation/>
       </NavigationContainer>
+      </SafeAreaView>
     </ThemeProvider>
 
 

@@ -6,13 +6,16 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "test": "jest",
     "generate:code": "hygen component new "
   },
   "dependencies": {
+    "@react-native-community/cli-tools": "^11.2.3",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native-stack": "^6.9.12",
+    "@rneui/base": "^4.0.0-rc.7",
+    "@rneui/themed": "^4.0.0-rc.7",
     "change-case": "^4.1.2",
     "hygen": "^6.2.11",
     "react": "18.2.0",
