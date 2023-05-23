@@ -14,13 +14,25 @@ export const  styles = StyleSheet.create({
         textAlign: 'center'
     },
     name: {
-        color: 'white'
+        color: '#ffffff'
     },
     ItemSeperator: {
-        backgroundColor: 'white',
+        backgroundColor: '#ffffff',
         height: 1
     },
     Icon: {
+        width: 100,
+        height: 80,
+        borderWidth: 2,
+        borderColor: '#ffffff'
        
+    },
+    songsInfoContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        textAlign: 'center',
+    },
+    songsInfo: {
+        margin: 7
     }
 })

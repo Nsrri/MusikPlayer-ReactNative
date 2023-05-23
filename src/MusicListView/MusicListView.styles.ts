@@ -1,13 +1,9 @@
-import {StyleSheet} from 'react-native'
-import {MusicListViewProps} from './MusicListView.interface';
+import { StyleSheet } from 'react-native'
 
-export const  styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center'
-    },
-    ItemSeperator: {
-        backgroundColor: 'white',
-        height: 1
+export const styles = StyleSheet.create({
+    headerStyle: {
+        color: 'white',
+        fontFamily: 'Nunito-Bold',
+        fontSize: 24
     }
 })

@@ -1,30 +1,33 @@
 import React from 'react';
-import { View, Text, Image} from 'react-native'
+import { View, Text, Image } from 'react-native'
 import { ListItemProps } from './ListItem.interface';
 import { styles } from './ListItem.styles';
-import {Icon} from '../../components/icon';
+import { Icon } from '../../components/icon';
 
 
-export const ListItem = ({ image,songsName, singerName, publishedDate  }: ListItemProps) => {
+export const ListItem = ({ image, AlbumName, singerName, publishedDate }: ListItemProps) => {
     return (
         <View style={styles.container}>
-            <Image
-                source={{ uri: image }
-                }
-            />
-            <SongsInfos songsName={songsName} singerName={singerName} publishedDate={publishedDate}/>
-            <Icon name={'chevron-right'} size={'small'} color={'white'} />
+            <View style={styles.songsInfoContainer}>
+                <Image
+                    source={{ uri: image }
+                    }
+                    style={styles.Icon}
+                />
+                <SongsInfos AlbumName={AlbumName} singerName={singerName} publishedDate={publishedDate} />
+            </View>
+            <Icon name={'chevron-right'} size={'small'} color={'#ffffff'} />
 
         </View>
     )
 }
 
-const SongsInfos = ({songsName, singerName, publishedDate}: ListItemProps) => {
-  return (
-    <View>
-        <Text style={styles.name}>{songsName}</Text>
-        <Text style={styles.name}>{singerName}</Text>
-        <Text style={styles.name}>{publishedDate}</Text>
-    </View>
-  )
+const SongsInfos = ({ AlbumName, singerName, publishedDate }: ListItemProps) => {
+    return (
+        <View style={styles.songsInfo}>
+            <Text style={styles.name}>{AlbumName}</Text>
+            <Text style={styles.name}>{singerName}</Text>
+            <Text style={styles.name}>{publishedDate}</Text>
+        </View>
+    )
 }

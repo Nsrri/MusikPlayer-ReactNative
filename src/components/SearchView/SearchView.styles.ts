@@ -6,8 +6,7 @@ import { ScreenHeight } from '@rneui/base';
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        marginTop: 5
+        marginTop: 5,
     },
     searchBarContainer: {
         backgroundColor: 'black',
