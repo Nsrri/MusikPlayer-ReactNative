@@ -14,12 +14,12 @@ import { MusicListViewProps } from '../MusicListView/MusicListView.interface';
 
 const DATA: [ListItemProps] = [
     {
-        AlbumName: 'abc',
+        songName: 'abc',
         singerName: 'ala',
         publishedDate: '2023'
     },
     {
-        AlbumName: 'efg',
+        songName: 'efg',
         singerName: 'aga',
         publishedDate: '2022'
     }

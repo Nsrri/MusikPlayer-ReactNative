@@ -1,29 +1,28 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import { MusicListViewProps } from './MusicListView.interface';
-import { ListItemProps } from '../components/ListItem/ListItem.interface';
 import { ListItem } from '../components/ListItem/ListItem';
 import { styles } from './MusicListView.styles';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { PlayView } from '../components/PlayView';
+import {  useNavigation } from '@react-navigation/native';
 export const MusicListView = ({ listItems }: MusicListViewProps) => {
     const navigation = useNavigation();
     return (
-            <View>
+            <View style={styles.container}>
                 <FlatList
                     data={listItems}
                     renderItem={({ item }) =>
                         <TouchableOpacity
                             onPress={() => {
-                                // navigation.navigate('PlayView')
+                                navigation.navigate('PlayView')
+                                
                             }}
                         >
                             <ListItem {...item} />
                         </TouchableOpacity>
 
                     }
-                    keyExtractor={(item, index) => item.AlbumName + index}
-                    ListHeaderComponent={() => <Text style={styles.headerStyle}>{'Albums'}</Text>}
+                    keyExtractor={(item, index) => item.songName + index}
+                    ListHeaderComponent={() => <Text style={styles.headerStyle}>{'Songs'}</Text>}
                 />
 
             </View>

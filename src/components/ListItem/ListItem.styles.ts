@@ -3,7 +3,7 @@ import {ListItemProps} from './ListItem.interface';
 
 export const  styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         justifyContent: 'space-between',
         flexDirection: 'row',
         backgroundColor: '#454545',

@@ -6,35 +6,33 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ThemeProvider } from '../../Context-Store/Context';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './App.styles';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { PlayView } from '../components/PlayView';
 
-
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
 export const App = () => {
-  const Tab = createBottomTabNavigator();
+  const stack = createNativeStackNavigator();
+
   return (
-    <ThemeProvider>
       <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
-        <BottomTabBarNavigation/>
+      <ThemeProvider>
+        <stack.Navigator  >
+          <stack.Screen name='Home' component={BottomTabBarNavigation} options={{ headerShown: false }}/>
+          <stack.Screen name='PlayView' component={PlayView} 
+        //   options={{
+        //   title: 'Music List',
+        //   headerStyle: {
+        //     backgroundColor: 'black',
+        //   },
+        //   headerTintColor: 'white',
+        //   headerTitleStyle: {
+        //     fontWeight: 'bold',
+        //   },
+        // }} 
+         />
+        </stack.Navigator>
+        </ThemeProvider>
       </NavigationContainer>
       </SafeAreaView>
-    </ThemeProvider>
-
-
   )
 }
