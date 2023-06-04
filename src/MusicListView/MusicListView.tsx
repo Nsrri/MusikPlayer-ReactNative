@@ -14,7 +14,7 @@ export const MusicListView = ({ listItems }: MusicListViewProps) => {
                         <TouchableOpacity
                             onPress={() => {
                                 navigation.navigate('PlayView')
-                                
+                                 
                             }}
                         >
                             <ListItem {...item} />
@@ -22,7 +22,7 @@ export const MusicListView = ({ listItems }: MusicListViewProps) => {
 
                     }
                     keyExtractor={(item, index) => item.songName + index}
-                    ListHeaderComponent={() => <Text style={styles.headerStyle}>{'Songs'}</Text>}
+                    ListHeaderComponent={() => <Text style={styles.headerStyle}>{'Playlist'}</Text>}
                 />
 
             </View>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useEffect, useState } from 'react';
 import { View, Text, SectionList, TouchableOpacity } from 'react-native'
 import { HomeViewProps } from './HomeView.interface';
-import NetworkRequests, { getAlbums } from '../../NetworkHandler/NetworkRequests';
+import { getAllTracks } from '../../NetworkHandler/NetworkRequests';
 import { Music } from '../../NetworkHandler/Data';
 import { styles } from './HomeView.styles';
 import { ThemeContext } from '../../Context-Store/Context';
@@ -32,24 +32,18 @@ export const HomeView = () => {
 
     // useEffect(() => {
     //     const fetchMusic = async () => {
-    //         const musicData = await NetworkRequests();
+    //         const musicData = await getAllTracks();
     //         setMusic(musicData)
     //     }
     //     fetchMusic();
     // }, [])
     return (
         <View style={[styles.container, { backgroundColor: theme === 'dark' ? '#000000' : '#ffffff' }]}>
-            {/* {music ?(
-                <Text style={{color: theme === 'dark' ? '#ffffff'  : '#000000'}}>{music.albums.items[9].data.name}</Text>
-            ) : (
-               <Text>Loading.....</Text>
-            )} */}
-            {/* <TouchableOpacity
-            onPress={() => getAlbums()}
-            
+         <TouchableOpacity
+            onPress={() => getAllTracks('1873297197')}
             >
                 <Text style={{backgroundColor: 'white'}}>{'show the data'}</Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
             <SearchView />
             <MusicListView listItems={DATA} />
             {/* <Text style={{ fontFamily: 'Nunito-BlackItalic', color: theme === 'dark' ? '#ffffff' : '#000000' }}>Home</Text> */}
