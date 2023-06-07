@@ -8,11 +8,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './App.styles';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PlayView } from '../components/PlayView';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
 export const App = () => {
   const stack = createNativeStackNavigator();
-
+  const queryClient = new QueryClient()
   return (
+    <QueryClientProvider client={queryClient}>
       <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
       <ThemeProvider>
@@ -34,5 +36,6 @@ export const App = () => {
         </ThemeProvider>
       </NavigationContainer>
       </SafeAreaView>
+      </QueryClientProvider>
   )
 }
