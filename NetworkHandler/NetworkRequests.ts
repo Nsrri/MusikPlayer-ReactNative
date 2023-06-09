@@ -15,8 +15,12 @@ export const getAllTracks = async (query:string) => {
         'X-RapidAPI-Host': `${X_RAPIDAPI_HOST}`
       }
     })
-    console.log(response.data);
-    return response.data;
+    const responseObject = response.data;
+    const dataEntity = responseObject.data;
+    const firstElement = dataEntity[0]
+
+   console.log(firstElement.title)
+    return firstElement ;
   } catch (error) {
     console.log(error)
 
