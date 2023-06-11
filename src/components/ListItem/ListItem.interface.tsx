@@ -1,6 +1,5 @@
 export interface ListItemProps {
-    image?: string,
-    songName: string,
-    singerName: string,
-    publishedDate: string
+    link?:string,
+    title?: string,
+    artist?: string,
 }

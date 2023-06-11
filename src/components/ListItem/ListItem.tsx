@@ -5,16 +5,17 @@ import { styles } from './ListItem.styles';
 import { Icon } from '../../components/icon';
 
 
-export const ListItem = ({ image, songName, singerName, publishedDate }: ListItemProps) => {
+
+export const ListItem = ({title, artist, link}: ListItemProps) => {
     return (
         <View style={styles.container}>
             <View style={styles.songsInfoContainer}>
                 <Image
-                    source={{ uri: image }
+                    source={{ uri: artist?.picture }
                     }
                     style={styles.Icon}
                 />
-                <SongsInfos songName={songName} singerName={singerName} publishedDate={publishedDate} />
+                <SongsInfos title={title} artist={artist?.name} />
             </View>
             <Icon name={'chevron-right'} size={'small'} color={'#ffffff'} />
 
@@ -22,12 +23,11 @@ export const ListItem = ({ image, songName, singerName, publishedDate }: ListIte
     )
 }
 
-const SongsInfos = ({ songName, singerName, publishedDate }: ListItemProps) => {
+const SongsInfos = ({title, artist}: any) => {
     return (
         <View style={styles.songsInfo}>
-            <Text style={styles.name}>{songName}</Text>
-            <Text style={styles.name}>{singerName}</Text>
-            <Text style={styles.name}>{publishedDate}</Text>
+            <Text style={styles.name}>{title}</Text>
+            <Text style={styles.name}>{artist}</Text>
         </View>
     )
 }

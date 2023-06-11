@@ -1,15 +1,17 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
-import { MusicListViewProps } from './MusicListView.interface';
 import { ListItem } from '../components/ListItem/ListItem';
 import { styles } from './MusicListView.styles';
 import {  useNavigation } from '@react-navigation/native';
-export const MusicListView = ({ listItems }: MusicListViewProps) => {
+import { SongInfo } from '../../NetworkHandler/NetworkRequests';
+import { MusicListViewProps } from './MusicListView.interface';
+export const MusicListView = ({ songInfo }: MusicListViewProps) => {
+    
     const navigation = useNavigation();
     return (
             <View style={styles.container}>
                 <FlatList
-                    data={listItems}
+                    data={songInfo}
                     renderItem={({ item }) =>
                         <TouchableOpacity
                             onPress={() => {
@@ -17,11 +19,11 @@ export const MusicListView = ({ listItems }: MusicListViewProps) => {
                                  
                             }}
                         >
-                            <ListItem {...item} />
+                            <ListItem title={item?.title} artist={item?.artist} link={item?.link} />
                         </TouchableOpacity>
 
                     }
-                    keyExtractor={(item, index) => item.songName + index}
+                    keyExtractor={(item, index) => item?.title + index}
                     ListHeaderComponent={() => <Text style={styles.headerStyle}>{'Playlist'}</Text>}
                 />
 

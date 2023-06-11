@@ -2,8 +2,9 @@
 import { useState, useEffect } from "react";
 import {SPOTIFY_BASE_URL,X_RAPIDAPI_KEY,X_RAPIDAPI_HOST } from '@env'
 import axios from "axios";
+import { SongInfo } from "./Data";
 
-export const getAllTracks = async (query:string) => {
+export const getAllTracks = async (query:string): Promise<SongInfo[] | undefined> =>  {
   try {
     const response = await axios.get(`${SPOTIFY_BASE_URL}/search`, {
       method: 'GET',
@@ -16,11 +17,8 @@ export const getAllTracks = async (query:string) => {
       }
     })
     const responseObject = response.data;
-    const dataEntity = responseObject.data;
-    const firstElement = dataEntity[0]
-
-   console.log(firstElement.title)
-    return firstElement ;
+    const SongInfo = responseObject.data;
+    return SongInfo ;
   } catch (error) {
     console.log(error)
 
