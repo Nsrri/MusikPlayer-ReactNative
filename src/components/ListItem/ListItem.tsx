@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native'
+import React, {useState} from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { ListItemProps } from './ListItem.interface';
 import { styles } from './ListItem.styles';
 import { Icon } from '../../components/icon';
@@ -18,7 +18,6 @@ export const ListItem = ({title, artist, link}: ListItemProps) => {
                 <SongsInfos title={title} artist={artist?.name} />
             </View>
             <Icon name={'chevron-right'} size={'small'} color={'#ffffff'} />
-
         </View>
     )
 }

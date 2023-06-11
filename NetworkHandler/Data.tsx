@@ -220,9 +220,12 @@ export  interface SongInfo {
   title?: string,
   link?: string,
   artist?:artist,
+  preview?:string
 }
 
 export interface artist {
   name?: string,
-  picture?:string
+  picture?:string,
+  picture_big?:string
+
 }

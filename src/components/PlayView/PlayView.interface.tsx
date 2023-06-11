@@ -1,3 +1,7 @@
+import { SongInfo } from "../../../NetworkHandler/Data";
+
 export interface PlayViewProps {
-    myProp?: boolean;
+    song?: SongInfo,
+    title?: string
+
 }
