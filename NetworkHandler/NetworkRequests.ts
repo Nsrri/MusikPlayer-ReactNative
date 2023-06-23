@@ -1,25 +1,26 @@
-import { Music } from "./Data";
-import { URLParams } from "./URLParams";
-import { URLProvider } from "./URLProvider";
+
 import { useState, useEffect } from "react";
+import {SPOTIFY_BASE_URL,X_RAPIDAPI_KEY,X_RAPIDAPI_HOST } from '@env'
+import axios from "axios";
+import { SongInfo } from "./Data";
 
-export default function NetworkRequests(): Promise<Music>{
-
-   const getAllMusiks = async (): Promise<Music> =>  {
-    const params: URLParams = {
-        rapidapiKey: '79d76177e4msha1235329fcd44e8p12f3c6jsn42826c0c0110',
-        q: '<REQUIRED>',
-        type: 'multi',
-        offset: 0,
-        limit: 10,
-        numberOfTopRequests: 10,
-    
+export const getAllTracks = async (query:string): Promise<SongInfo[] | undefined> =>  {
+  try {
+    const response = await axios.get(`${SPOTIFY_BASE_URL}/search`, {
+      method: 'GET',
+      params: {
+        q: query
+      },
+      headers: {
+        'X-RapidAPI-Key': `${X_RAPIDAPI_KEY}` ,
+        'X-RapidAPI-Host': `${X_RAPIDAPI_HOST}`
       }
-      const url = URLProvider(params);
-      const method: RequestInit = {method: 'GET'}
-        const response = await fetch(url, method);
-        const data = await response.json();
-        return data
-}
-return getAllMusiks();
+    })
+    const responseObject = response.data;
+    const SongInfo = responseObject.data;
+    return SongInfo ;
+  } catch (error) {
+    console.log(error)
+
+  }
 }

@@ -1,32 +1,60 @@
-import React, { useContext } from 'react';
-import { useEffect, useState } from 'react';
-import {View, Text, SectionList} from 'react-native'
-import {HomeViewProps} from './HomeView.interface';
-import NetworkRequests from '../../NetworkHandler/NetworkRequests';
+import React, { useContext, useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native'
 import { Music } from '../../NetworkHandler/Data';
 import { styles } from './HomeView.styles';
 import { ThemeContext } from '../../Context-Store/Context';
+import { SearchView } from '../components/SearchView';
+import { MusicListView } from '../MusicListView';
+import { ListItemProps } from '../components/ListItem/ListItem.interface';
+import { SongInfo, getAllTracks } from '../../NetworkHandler/NetworkRequests';
+import { useDebounce } from 'use-debounce';
+import { useQuery } from 'react-query';
 
 export const HomeView = () => {
-    const [music, setMusic] = useState<Music>()
-    const {theme} = useContext(ThemeContext)
-
-    useEffect(() => {
-        const fetchMusic = async () =>  {
-            const musicData = await NetworkRequests();
-            setMusic(musicData)
+    const { theme } = useContext(ThemeContext)
+    const [searchValue, setValue] = useState('')
+    const [debouncedSearchValue] = useDebounce(searchValue, 500)
+    const [data, setData] = useState<SongInfo[] | undefined>([])
+    useEffect( () => {
+        if (debouncedSearchValue) {
+            // const fetchData = async () => {
+            //      getAllTracks(debouncedSearchValue)
+                 const fetchResult = async () => {
+                    setData(await getAllTracks(debouncedSearchValue));
+                 }
+            fetchResult();
+        
         }
-        fetchMusic();
-    }, [])
+    },[debouncedSearchValue])
+    
+
+    const updateSearch =  (e: any) => {
+        const searchValue = e.target.value
+        setValue(searchValue)
+    }
+
+    const handleCancel = () => {
+        setValue('')
+    }
+    // const DATA: [ListItemProps] = [
+    //     {
+    //         songName: "data.title",
+    //         singerName: 'ala',
+    //         publishedDate: '2023'
+    //     },
+    //     {
+    //         songName: 'efg',
+    //         singerName: 'aga',
+    //         publishedDate: '2022'
+    //     }
+    
+    // ]
     return (
-        <View style={styles.container}>
-            {/* {music ?(
-                <Text style={{color: theme === 'dark' ? '#ffffff'  : '#000000'}}>{music.albums.items[9].data.name}</Text>
-            ) : (
-               <Text>Loading.....</Text>
-            )} */}
-            <Text style={{fontFamily: 'Nunito-BlackItalic', color: theme === 'dark' ? '#ffffff'  : '#000000'}}>Home</Text>
-         
+        <View style={[styles.container, { backgroundColor: theme === 'dark' ? '#000000' : '#ffffff' }]}>
+            <SearchView updateSearch={updateSearch} handleCancel={handleCancel} updateValue={setValue} searchValue={searchValue} />
+            {data && (
+                <MusicListView songInfo={data} />
+            )}
         </View>
     )
 }
