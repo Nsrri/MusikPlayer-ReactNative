@@ -370,7 +370,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5050DA4E2A110DA1006FDDAF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,28 +377,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				41518F73A8354B0391FCDF4C /* Nunito-Italic-VariableFont_wght.ttf in Resources */,
-				D965B6A0500744F6B2432AD9 /* Nunito-VariableFont_wght.ttf in Resources */,
-				2BC5EEEFE782437BB8C77635 /* Nunito-Black.ttf in Resources */,
-				D16FB9D2B57243CD99103353 /* Nunito-BlackItalic.ttf in Resources */,
-				603F8E28A6FA49BB9186B61C /* Nunito-Bold.ttf in Resources */,
-				533006B57FD649CFA7F98E5B /* Nunito-BoldItalic.ttf in Resources */,
-				A71D5A913D044D53A539D4CB /* Nunito-ExtraBold.ttf in Resources */,
-				41834E3F47194A169AB9CDC6 /* Nunito-ExtraBoldItalic.ttf in Resources */,
-				F4290E3779724C88A507C2DB /* Nunito-ExtraLight.ttf in Resources */,
-				DC4BCC928E294129AF6741A6 /* Nunito-ExtraLightItalic.ttf in Resources */,
-				1AB4BC6D025349CFB32D1EAF /* Nunito-Italic.ttf in Resources */,
-				8E6BD5B86CA244E7996D0F81 /* Nunito-Light.ttf in Resources */,
-				81B7EBFC2DF04EADA41417D2 /* Nunito-LightItalic.ttf in Resources */,
-				4FE04228C06E4FB9A4F36C50 /* Nunito-Medium.ttf in Resources */,
-				9492EE09D50642D38E14EF0A /* Nunito-MediumItalic.ttf in Resources */,
-				5502C21E73D14F96BE6D27DF /* Nunito-Regular.ttf in Resources */,
-				323DAE9CA7084CD1AE9337D7 /* Nunito-SemiBold.ttf in Resources */,
-				AFE810E3AFCE4416AB6FC2E5 /* Nunito-SemiBoldItalic.ttf in Resources */,
-				39CF19E2526A4076B6BA2F0C /* OFL.txt in Resources */,
-				E30658850CB743CDBEFD55B4 /* README.txt in Resources */,
-=======
 				50A4AB3C2A45D1A800D54AF9 /* Nunito-BlackItalic.ttf in Resources */,
 				50A4AB3D2A45D1A800D54AF9 /* Nunito-Bold.ttf in Resources */,
 				50A4AB3E2A45D1A800D54AF9 /* Nunito-BoldItalic.ttf in Resources */,
@@ -416,7 +393,6 @@
 				50A4AB492A45D1A800D54AF9 /* Nunito-SemiBold.ttf in Resources */,
 				50A4AB4A2A45D1A800D54AF9 /* Nunito-SemiBoldItalic.ttf in Resources */,
 				50A4AB4B2A45D1A800D54AF9 /* Nunito-Black.ttf in Resources */,
->>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
