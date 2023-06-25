@@ -14,21 +14,19 @@ export const HomeView = () => {
     const { theme } = useContext(ThemeContext)
     const [searchValue, setValue] = useState('')
     const [debouncedSearchValue] = useDebounce(searchValue, 500)
-    const [data, setData] = useState<SongInfo[] | undefined>([])
-    useEffect( () => {
+    const [data, setData] = useState<SongInfo | undefined>([])
+    useEffect(() => {
         if (debouncedSearchValue) {
-            // const fetchData = async () => {
-            //      getAllTracks(debouncedSearchValue)
-                 const fetchResult = async () => {
-                    setData(await getAllTracks(debouncedSearchValue));
-                 }
+            const fetchResult = async () => {
+                setData(await getAllTracks(debouncedSearchValue));
+            }
             fetchResult();
-        
-        }
-    },[debouncedSearchValue])
-    
 
-    const updateSearch =  (e: any) => {
+        }
+    }, [debouncedSearchValue])
+
+
+    const updateSearch = (e: any) => {
         const searchValue = e.target.value
         setValue(searchValue)
     }
@@ -36,19 +34,6 @@ export const HomeView = () => {
     const handleCancel = () => {
         setValue('')
     }
-    // const DATA: [ListItemProps] = [
-    //     {
-    //         songName: "data.title",
-    //         singerName: 'ala',
-    //         publishedDate: '2023'
-    //     },
-    //     {
-    //         songName: 'efg',
-    //         singerName: 'aga',
-    //         publishedDate: '2022'
-    //     }
-    
-    // ]
     return (
         <View style={[styles.container, { backgroundColor: theme === 'dark' ? '#000000' : '#ffffff' }]}>
             <SearchView updateSearch={updateSearch} handleCancel={handleCancel} updateValue={setValue} searchValue={searchValue} />

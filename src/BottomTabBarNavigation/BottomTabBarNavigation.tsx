@@ -5,30 +5,58 @@ import { RecentView } from '../RecentView';
 import { YourLibrary } from '../YourLibrary';
 import { Icon } from '../components/icon';
 import { ThemeContext } from '../../Context-Store/Context';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { PlayView } from '../components/PlayView';
+
+
+
+const stack = createNativeStackNavigator();
+export const MainStack = () => {
+  const { theme } = useContext(ThemeContext);
+  const backgroundColors = theme === 'dark' ? '#000000' : '#ffffff';
+  const activeColor = theme === 'dark' ? '#f5f5f5' : '#E60000'
+  return (
+    <stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: backgroundColors,
+        },
+        headerTitleStyle: {
+          color: activeColor,
+
+        },
+        headerTintColor: activeColor,
+      }}
+    >
+      <stack.Screen name='Home' component={BottomTabBarNavigation} options={{ headerShown: false }} />
+      <stack.Screen name='PlayView' component={PlayView} />
+    </stack.Navigator>
+  )
+}
 
 const Tab = createBottomTabNavigator();
 export const BottomTabBarNavigation = () => {
-  const {theme} = useContext(ThemeContext);
-  const backgroundColors =  theme === 'dark' ? '#000000'  : '#ffffff'
+  const { theme } = useContext(ThemeContext);
+  const backgroundColors = theme === 'dark' ? '#000000' : '#ffffff'
   const fontName = 'Nunito-Regular'
-  const activeColor = theme === 'dark' ?  	'#f5f5f5' : '#E60000'
+  const activeColor = theme === 'dark' ? '#f5f5f5' : '#E60000'
   const inActiveColor = theme === 'dark' ? '#707070' : '#1C1C1C'
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: activeColor,
-        tabBarInactiveTintColor: inActiveColor ,
+        tabBarInactiveTintColor: inActiveColor,
         tabBarIconStyle: { display: 'flex' },
         tabBarStyle: {
-          backgroundColor:  backgroundColors,
+          backgroundColor: backgroundColors,
         },
         headerTitleStyle: {
           color: activeColor
         },
         headerStyle: {
-          backgroundColor:  backgroundColors
-          
-        }
+          backgroundColor: backgroundColors,
+        },
+
       }}
     >
       <Tab.Group>
@@ -40,7 +68,6 @@ export const BottomTabBarNavigation = () => {
             tabBarIcon: ({ color }) => (
               <Icon name='home' size='medium' color={color} />
             )
-            
           }}
 
         />
@@ -53,8 +80,8 @@ export const BottomTabBarNavigation = () => {
               <Icon name='list' size='medium' color={color} />
             )
           }}
-          />
-             <Tab.Screen name="Recent" component={RecentView}
+        />
+        <Tab.Screen name="Recent" component={RecentView}
           options={{
             tabBarLabelStyle: {
               fontFamily: fontName,

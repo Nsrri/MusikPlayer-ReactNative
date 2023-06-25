@@ -1,5 +1,4 @@
 
-import { useState, useEffect } from "react";
 import {SPOTIFY_BASE_URL,X_RAPIDAPI_KEY,X_RAPIDAPI_HOST } from '@env'
 import axios from "axios";
 import { SongInfo } from "./Data";
