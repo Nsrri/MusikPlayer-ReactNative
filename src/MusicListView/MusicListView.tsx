@@ -25,7 +25,6 @@ export const MusicListView = ({ songInfo }: MusicListViewProps) => {
 
                 }
                 keyExtractor={(item, index) => item?.title + index}
-                ListHeaderComponent={() => <Text style={styles.headerStyle}>{'Playlist'}</Text>}
             />
 
         </View>

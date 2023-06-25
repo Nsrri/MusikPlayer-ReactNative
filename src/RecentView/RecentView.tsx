@@ -7,8 +7,8 @@ import { ThemeContext } from '../../Context-Store/Context';
 export const RecentView = () => {
     const { theme } = useContext(ThemeContext);
     return (
-        <View style={[styles.container, { backgroundColor: theme === 'dark' ? '#000000' : '#ffffff' }]}>
-            <Text style={{ color: theme === 'dark' ? 'white' : 'black' }}>RecentView</Text>
+        <View style={[styles.container, { backgroundColor: theme === 'dark' ? '#13131A' : '#EBEBFO' }]}>
+            <Text style={{ color: theme === 'dark' ? '#F9F4F4' : 'black' }}>RecentView</Text>
         </View>
     )
 }

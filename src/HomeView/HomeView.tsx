@@ -35,8 +35,10 @@ export const HomeView = () => {
         setValue('')
     }
     return (
-        <View style={[styles.container, { backgroundColor: theme === 'dark' ? '#000000' : '#ffffff' }]}>
+        <View style={[styles.container, { backgroundColor: theme === 'dark' ? '#13131A' : '#EBEBFO' }]}>
+
             <SearchView updateSearch={updateSearch} handleCancel={handleCancel} updateValue={setValue} searchValue={searchValue} />
+            <Text style={styles.headerStyle}>{'Playlist'}</Text>
             {data && (
                 <MusicListView songInfo={data} />
             )}

@@ -14,17 +14,17 @@ export const  styles = StyleSheet.create({
         textAlign: 'center'
     },
     name: {
-        color: '#ffffff'
+        color: '#F9F4F4'
     },
     ItemSeperator: {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#F9F4F4',
         height: 1
     },
     Icon: {
         width: 100,
         height: 80,
         borderWidth: 2,
-        borderColor: '#ffffff'
+        borderColor: '#F9F4F4'
        
     },
     songsInfoContainer: {

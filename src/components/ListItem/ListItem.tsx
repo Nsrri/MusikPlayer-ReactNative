@@ -17,7 +17,7 @@ export const ListItem = ({title, artist, link}: ListItemProps) => {
                 />
                 <SongsInfos title={title} artist={artist?.name} />
             </View>
-            <Icon name={'chevron-right'} size={'small'} color={'#ffffff'} />
+            <Icon name={'chevron-right'} size={'small'} color={'#F9F4F4'} />
         </View>
     )
 }

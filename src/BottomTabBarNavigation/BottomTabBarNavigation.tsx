@@ -13,13 +13,13 @@ import { PlayView } from '../components/PlayView';
 const stack = createNativeStackNavigator();
 export const MainStack = () => {
   const { theme } = useContext(ThemeContext);
-  const backgroundColors = theme === 'dark' ? '#000000' : '#ffffff';
+  const backgroundColor = theme === 'dark' ? '#13131A' : '#EBEBFO';
   const activeColor = theme === 'dark' ? '#f5f5f5' : '#E60000'
   return (
     <stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: backgroundColors,
+          backgroundColor: backgroundColor,
         },
         headerTitleStyle: {
           color: activeColor,
@@ -37,9 +37,9 @@ export const MainStack = () => {
 const Tab = createBottomTabNavigator();
 export const BottomTabBarNavigation = () => {
   const { theme } = useContext(ThemeContext);
-  const backgroundColors = theme === 'dark' ? '#000000' : '#ffffff'
+  const backgroundColor = theme === 'dark' ? '#13131A' : '#EBEBFO'
   const fontName = 'Nunito-Regular'
-  const activeColor = theme === 'dark' ? '#f5f5f5' : '#E60000'
+  const activeColor = theme === 'dark' ? '#F9F4F4' : '#E60000'
   const inActiveColor = theme === 'dark' ? '#707070' : '#1C1C1C'
   return (
     <Tab.Navigator
@@ -48,13 +48,13 @@ export const BottomTabBarNavigation = () => {
         tabBarInactiveTintColor: inActiveColor,
         tabBarIconStyle: { display: 'flex' },
         tabBarStyle: {
-          backgroundColor: backgroundColors,
+          backgroundColor: backgroundColor,
         },
         headerTitleStyle: {
           color: activeColor
         },
         headerStyle: {
-          backgroundColor: backgroundColors,
+          backgroundColor: backgroundColor,
         },
 
       }}

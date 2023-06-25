@@ -9,14 +9,14 @@ export const styles = StyleSheet.create({
         marginTop: 5,
     },
     searchBarContainer: {
-        backgroundColor: 'black',
+        backgroundColor: '101014',
         padding: 2
     },
     inputContainerStyle: {
         borderRadius: 20,
-        backgroundColor: '#ffffff'
+        backgroundColor: '#F9F4F4'
     },
     input: {
-        color: '#000000'
+        color: '#101014'
     }
 })

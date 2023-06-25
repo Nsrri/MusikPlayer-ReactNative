@@ -5,6 +5,7 @@ import { styles } from './PlayView.styles';
 import { Image } from '@rneui/base';
 import { PlayViewProps } from './PlayView.interface';
 import { BottomTabBar } from '@react-navigation/bottom-tabs';
+import { SongModificationView } from '../../SongModificationView';
 
 export const PlayView = ({ navigation, route }) => {
     const { theme } = useContext(ThemeContext)
@@ -16,15 +17,16 @@ export const PlayView = ({ navigation, route }) => {
         )
     })
     return (
-        <View style={[styles.container, { backgroundColor: theme === 'dark' ? '#000000' : '#ffffff' }]}>
+        <View style={[styles.container, { backgroundColor: theme === 'dark' ? '#13131A' : '#EBEBFO' }]}>
             <View style={styles.innerContainer}>
                 <Image
                     source={{ uri: route.params.song?.artist?.picture_big }
                     }
                     style={styles.Icon}
                 />
+                <SongModificationView />
             </View>
-
+            <SongModificationView />
         </View>
     )
 }
