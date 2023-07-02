@@ -1,3 +1,3 @@
 export interface SongModificationViewProps {
-    myProp?: boolean;
+    songPath: string
 }
