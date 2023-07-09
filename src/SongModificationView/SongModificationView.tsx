@@ -24,13 +24,15 @@ export const SongModificationView = ({ songPath }: SongModificationViewProps) =>
         song.setVolume(1);
         return () => {
             song.release();
+            setPlayMusic(false);
         };
     }, []);
 
     const playPause = () => {
-        if (song.isPlaying()) {
-            song.pause();
+        if (playMusic && song.isPlaying()) {
             setPlayMusic(false);
+            song.pause();
+            console.log('song should pause');
         } else {
             setPlayMusic(true);
             song.play(success => {
@@ -38,8 +40,8 @@ export const SongModificationView = ({ songPath }: SongModificationViewProps) =>
                     console.log('Playing song is finished successfully');
                     setPlayMusic(false);
                 } else
-                    console.log('Playing song failed due to audio decoding error');
-                console.log(songPath)
+                    setPlayMusic(false);
+                console.log('Playing song failed due to audio decoding error');
             }
 
             )
@@ -59,8 +61,7 @@ export const SongModificationView = ({ songPath }: SongModificationViewProps) =>
             />
             <View style={styles.innerContainer}>
                 <SongsAction onPress={() => { }} name='backward' />
-                <SongsAction onPress={playPause} name='play' />
-                {/* <SongsAction onPress={() => {}} name='pause' /> */}
+                <SongsAction onPress={playPause} name={playMusic ? 'pause' : 'play'} />
                 <SongsAction onPress={() => { }} name='forward' />
             </View>
         </View>

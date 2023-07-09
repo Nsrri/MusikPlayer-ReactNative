@@ -24,7 +24,7 @@ export const PlayView = ({ navigation, route }) => {
                     }
                     style={styles.Icon}
                 />
-                <SongModificationView songPath={`${route.params.song.link}`} />
+                <SongModificationView songPath={`${route.params.song.preview}`} />
             </View>
         </View>
     )

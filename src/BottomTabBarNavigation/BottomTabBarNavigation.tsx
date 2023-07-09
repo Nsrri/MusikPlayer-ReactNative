@@ -60,7 +60,7 @@ export const BottomTabBarNavigation = () => {
       }}
     >
       <Tab.Group>
-        <Tab.Screen name="Home" component={HomeView}
+        <Tab.Screen name="HomeScreen" component={HomeView}
           options={{
             tabBarLabelStyle: {
               fontFamily: fontName,
